@@ -1,3 +1,5 @@
+import style from '../styles/home.module.css';
+
 export default function CoolHome() {
-  return '멋진 사이트';
+  return <span className={style.title}>멋진 사이트</span>;
 }
