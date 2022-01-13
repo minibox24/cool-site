@@ -15,14 +15,11 @@ model User {
   avatar     String
   bio        String
   registerAt DateTime
-  posts      Post[]
-  comments   Comment[]
 }
 
 model Channel {
-  id    String @id
-  description   String
-  posts Post[]
+  id          String @id
+  description String
 }
 
 model Post {
@@ -32,20 +29,15 @@ model Post {
 
   likes    Int @default(0)
   dislikes Int @default(0)
-  comments Comment[]
 
-  author    User    @relation(fields: [userId], references: [id])
-  channel   Channel @relation(fields: [channelId], references: [id])
-  userId    String
-  channelId String
+  author  String
+  channel String
 }
 
 model Comment {
   id      Int    @id @default(autoincrement())
   content String
 
-  author User   @relation(fields: [userId], references: [id])
-  post   Post   @relation(fields: [postId], references: [id])
-  userId String
-  postId Int
+  author String
+  post   Int
 }
