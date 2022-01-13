@@ -21,7 +21,7 @@ model User {
 
 model Channel {
   id    String @id
-  bio   String
+  description   String
   posts Post[]
 }
 
@@ -30,8 +30,8 @@ model Post {
   title   String
   content String
 
-  likes    Int
-  dislikes Int
+  likes    Int @default(0)
+  dislikes Int @default(0)
   comments Comment[]
 
   author    User    @relation(fields: [userId], references: [id])
